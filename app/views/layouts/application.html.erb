@@ -8,7 +8,32 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+            <li class="menu-logout"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+            <li class="menu-login"><%= link_to "Log in", new_user_session_path %></li>
+            <li class="menu-signup"><%= link_to "Sign up", new_user_registration_path %></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>
