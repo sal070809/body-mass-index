@@ -25,7 +25,11 @@ class MeasurementsController < ApplicationController
   # POST /measurements
   # POST /measurements.json
   def create
+
     @measurement = Measurement.new(measurement_params)
+    @measurement.user_id = current_user.id
+    @measurement.bmi = (@measurement.mass/@measurement.height**2).round(2)
+    @measurement.category_id = get_category(@measurement.bmi)
 
     respond_to do |format|
       if @measurement.save
@@ -62,6 +66,11 @@ class MeasurementsController < ApplicationController
     end
   end
 
+  def get_category(bmi)
+    test =Category.where("? between min and max", bmi.to_i)
+    return test.first.id
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement
@@ -70,6 +79,6 @@ class MeasurementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def measurement_params
-      params.require(:measurement).permit(:mass, :height, :user_id, :category_id)
+      params.require(:measurement).permit(:mass, :height, :user_id, :category_id ,:bmi)
     end
 end

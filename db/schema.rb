@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905182401) do
+ActiveRecord::Schema.define(version: 20170905191426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "from"
-    t.integer  "to"
+    t.integer  "min"
+    t.integer  "max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170905182401) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.float    "bmi"
   end
 
   add_index "measurements", ["category_id"], name: "index_measurements_on_category_id", using: :btree
