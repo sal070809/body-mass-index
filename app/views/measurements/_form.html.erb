@@ -18,37 +18,23 @@
   <div class="form-group">
     <%= f.label :mass, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :mass, :class => 'form-control' %>
+      <%= f.number_field :mass, class: :text_field, step: :any %>
     </div>
     <%=f.error_span(:mass) %>
   </div>
   <div class="form-group">
     <%= f.label :height, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :height, :class => 'form-control' %>
+      <%= f.number_field :height, class: :text_field, step: :any %>
     </div>
     <%=f.error_span(:height) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:user_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :category_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :category_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:category_id) %>
   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit 'Calculate', :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                measurements_path, :class => 'btn btn-default' %>
+                root_path, :class => 'btn btn-default' %>
     </div>
   </div>
 

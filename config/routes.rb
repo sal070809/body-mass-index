@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get "/static_pages/:page" => "static_pages#show"
+  get "/static_pages/:site" => "static_pages#show"
 
-  root 'static_pages#show',  page: "home"
+  root 'static_pages#show',  site: "home"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

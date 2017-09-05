@@ -28,7 +28,9 @@ class MeasurementsController < ApplicationController
 
     @measurement = Measurement.new(measurement_params)
     @measurement.user_id = current_user.id
-    @measurement.bmi = (@measurement.mass/@measurement.height**2).round(2)
+    if !@measurement.height.nil? and @measurement.height > 0
+      @measurement.bmi = (@measurement.mass/@measurement.height**2).round(2)
+    end
     @measurement.category_id = get_category(@measurement.bmi)
 
     respond_to do |format|

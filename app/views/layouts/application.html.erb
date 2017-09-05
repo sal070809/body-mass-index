@@ -20,7 +20,7 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-            <li><%= link_to "Home", :controller => 'static_pages',:action=>'show', :page => 'home'%></li>
+            <li><%= link_to "Home", :controller => 'static_pages',:action=>'show', :site => 'home'%></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
             <li><%= link_to "Log in", new_user_session_path %></li>
