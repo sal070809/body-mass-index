@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mass: 
+  height: 
+  user_id: 
+
+two:
+  mass: 
+  height: 
+  user_id: 
