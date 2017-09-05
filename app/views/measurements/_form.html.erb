@@ -16,14 +16,14 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :mass, :class => 'control-label col-lg-2' %>
+    <%= f.label 'Mass in Kg', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.number_field :mass, class: :text_field, step: :any %>
     </div>
     <%=f.error_span(:mass) %>
   </div>
   <div class="form-group">
-    <%= f.label :height, :class => 'control-label col-lg-2' %>
+    <%= f.label 'Height in Meters', :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.number_field :height, class: :text_field, step: :any %>
     </div>
