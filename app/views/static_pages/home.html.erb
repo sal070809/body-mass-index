@@ -1,3 +1,30 @@
-<div class="col-lg-3">
+<div class="col-lg-6">
   <h4>Welcome <%= current_user.name%></h4>
+</div>
+
+<div class="col-lg-12">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><%= Measurement.human_attribute_name(:id) %></th>
+      <th><%= Measurement.human_attribute_name(:mass) %></th>
+      <th><%= Measurement.human_attribute_name(:height) %></th>
+      <th><%= "Body Mass Index" %></th>
+      <th><%= "Category" %></th>
+      <th><%= Measurement.human_attribute_name(:created_at) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @measurements.each do |measurement| %>
+        <tr>
+          <td><%= link_to measurement.id, measurement_path(measurement) %></td>
+          <td><%= measurement.mass %></td>
+          <td><%= measurement.height %></td>
+          <td><%= measurement.mass/measurement.height**2  %></td>
+          <td><%= measurement.mass/measurement.height**2  %></td>
+          <td><%=l measurement.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
