@@ -21,7 +21,7 @@
           <td><%= measurement.mass %></td>
           <td><%= measurement.height %></td>
           <td><%= measurement.mass/measurement.height**2  %></td>
-          <td><%= measurement.mass/measurement.height**2  %></td>
+          <td><%= measurement.category.name  %></td>
           <td><%=l measurement.created_at %></td>
         </tr>
     <% end %>
